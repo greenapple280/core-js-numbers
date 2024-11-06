@@ -18,9 +18,10 @@
  *   5, 10 => 50
  *   5, 5  => 25
  */
-function getRectangleArea(/* width, height */) {
-  throw new Error('Not implemented');
+function getRectangleArea(width, height) {
+  return width * height;
 }
+getRectangleArea(5, 10);
 
 /**
  * Returns a circumference of circle given by radius.
@@ -33,9 +34,10 @@ function getRectangleArea(/* width, height */) {
  *   3.14 => 19.729201864543903
  *   0    => 0
  */
-function getCircleCircumference(/* radius */) {
-  throw new Error('Not implemented');
+function getCircleCircumference(radius) {
+  return 2 * 3.14 * radius;
 }
+getCircleCircumference(5);
 
 /**
  * Returns an average of two given numbers.
@@ -49,9 +51,11 @@ function getCircleCircumference(/* radius */) {
  *  10, 0  => 5
  *  -3, 3  => 0
  */
-function getAverage(/* value1, value2 */) {
-  throw new Error('Not implemented');
+function getAverage(value1, value2) {
+  const average = (value1 + value2) / 2;
+  return average;
 }
+getAverage(5, 5);
 
 /**
  * Returns a distance between two points by cartesian coordinates.
@@ -122,9 +126,10 @@ function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
  *     5     => 5
  *     0     => 0
  */
-function getLastDigit(/* value */) {
-  throw new Error('Not implemented');
+function getLastDigit(value) {
+  return value % 10;
 }
+getLastDigit(100);
 
 /**
  * Returns a number by given string representation.
