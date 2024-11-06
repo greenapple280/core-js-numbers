@@ -88,9 +88,11 @@ function getDistanceBetweenPoints(/* x1, y1, x2, y2 */) {
  *   x + 8 = 0       => -8
  *   5*x = 0         => 0
  */
-function getLinearEquationRoot(/* a, b */) {
-  throw new Error('Not implemented');
+function getLinearEquationRoot(a, b) {
+  const x = (0 - b) / a;
+  return x;
 }
+getLinearEquationRoot(5, 10);
 
 /**
  * Returns an angle (in radians) between two vectors given by xi and yi,
@@ -142,9 +144,11 @@ getLastDigit(100);
  *     '37'     => 37
  * '-525.5'     => -525.5
  */
-function parseNumberFromString(/* value */) {
-  throw new Error('Not implemented');
+function parseNumberFromString(value) {
+  const parsedNumber = parseFloat(value);
+  return parsedNumber;
 }
+parseNumberFromString('-525.5');
 
 /**
  * Returns a diagonal length of the rectangular parallelepiped given by its sides a,b,c.
