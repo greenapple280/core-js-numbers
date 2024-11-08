@@ -72,9 +72,12 @@ getAverage(5, 5);
  *   (0,0) (1,0)    => 1
  *   (-5,0) (10,-10) => 18.027756377319946
  */
-function getDistanceBetweenPoints(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
+function getDistanceBetweenPoints(x1, y1, x2, y2) {
+  const underRoofX = (x2 - x1) ** 2;
+  const underRoofY = (y2 - y1) ** 2;
+  return Math.sqrt(underRoofY + underRoofX);
 }
+getDistanceBetweenPoints(0, 0, 0, 1);
 
 /**
  * Returns a root of linear equation a*x + b = 0 given by coefficients a and b.
@@ -239,9 +242,10 @@ function toNumber(/* value, def */) {
  *   -2 => -8
  *   0  => 0
  */
-function getCube(/* num */) {
-  throw new Error('Not implemented');
+function getCube(num) {
+  return num ** 3;
 }
+getCube(3);
 
 /**
  * Returns the Fibonacci number located at the index position.
@@ -271,9 +275,14 @@ function getFibonacciNumber(/* index */) {
  *   10 => 55 // (1+2+3+...+10)
  *   1  => 1
  */
-function getSumToN(/* n */) {
-  throw new Error('Not implemented');
+function getSumToN(n) {
+  let sum = 0;
+  for (let i = 0; i <= n; i += 1) {
+    sum += i;
+  }
+  return sum;
 }
+getSumToN(5);
 
 /**
  * Returns the sum of the digits of a given number.
@@ -301,9 +310,13 @@ function getSumOfDigits(/* num */) {
  *   16  => true
  *   15  => false
  */
-function isPowerOfTwo(/* num */) {
-  throw new Error('Not implemented');
+/* function isPowerOfTwo(num) {
+  if (num % 2 === 0) {
+    return true;
+  }
+  return false;
 }
+isPowerOfTwo(16); */
 
 /**
  * Returns the sine of a number.
