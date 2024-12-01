@@ -490,7 +490,9 @@ getIntegerOnString(10, 8);
 function isSafeInteger(number) {
   return Number.isSafeInteger(number);
 }
+
 isSafeInteger(10);
+
 /**
  * Returns the smallest integer less than or equal to a given number.
  *
@@ -549,9 +551,9 @@ roundToNearestInteger(5.5);
  * -5.5 => -5
  */
 function getIntegerPartNumber(number) {
-  return Math.round(number);
+  return Math.trunc(number);
 }
-getIntegerPartNumber(5.5);
+getIntegerPartNumber(5.4);
 
 /**
  * Returns the sum of numbers.
@@ -565,9 +567,11 @@ getIntegerPartNumber(5.5);
  * 1, 2, 3       => 6
  * 0.1, 0.2, 0.3 => 0.6
  */
-function getSumOfNumbers(/* x1, x2, x3 */) {
-  throw new Error('Not implemented');
+function getSumOfNumbers(x1, x2, x3) {
+  return +(x1 + x2 + x3).toFixed(1);
 }
+
+getSumOfNumbers(1, 2, 3);
 
 /**
  * Returns the largest number.
@@ -581,9 +585,11 @@ function getSumOfNumbers(/* x1, x2, x3 */) {
  * -5, -6 => -5
  * 0, 5   => 5
  */
-function getMaxNumber(/* firstNumber, secondNumber */) {
-  throw new Error('Not implemented');
+function getMaxNumber(firstNumber, secondNumber) {
+  return Math.max(firstNumber, secondNumber);
 }
+
+getMaxNumber(1, 2);
 
 /**
  * Returns a random integer in the range from min to max.
@@ -597,9 +603,13 @@ function getMaxNumber(/* firstNumber, secondNumber */) {
  * -5, 0 => -5 | -4 | -3 | -2 | -1 | 0
  * -1, 1 => -1 | 0 | 1
  */
-function getRandomInteger(/* min, max */) {
-  throw new Error('Not implemented');
+function getRandomInteger(min, max) {
+  const minim = Math.ceil(min);
+  const maxim = Math.floor(max);
+  return Math.floor(Math.random() * (maxim - minim) + minim);
 }
+
+getRandomInteger(1, 2);
 
 /**
  * Returns the length of the hypotenuse of a right triangle.
@@ -611,9 +621,11 @@ function getRandomInteger(/* min, max */) {
  * @example:
  * 3, 4 => 5
  */
-function getHypotenuse(/* a, b */) {
-  throw new Error('Not implemented');
+function getHypotenuse(a, b) {
+  return Math.hypot(a, b);
 }
+
+getHypotenuse(3, 4);
 
 /**
  * Returns count of odd numbers from zero to the resulting number.
@@ -628,9 +640,16 @@ function getHypotenuse(/* a, b */) {
  * 10 => 5
  * 15 => 8
  */
-function getCountOfOddNumbers(/* number */) {
-  throw new Error('Not implemented');
+function getCountOfOddNumbers(number) {
+  const newNumber = Math.abs(number);
+  const arr = [];
+  for (let i = 1; i <= newNumber; i += 2) {
+    arr.push(i);
+  }
+  return arr.length;
 }
+
+getCountOfOddNumbers(-4);
 
 module.exports = {
   getRectangleArea,
