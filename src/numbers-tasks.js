@@ -238,9 +238,12 @@ isPrime(2);
  *   toNumber(42, 0) => 42
  *   toNumber(new Number(42), 0) => 42
  */
-function toNumber(/* value, def */) {
-  throw new Error('Not implemented');
+function toNumber(value, def) {
+  const num = Number(value);
+  return Number.isNaN(num) ? def : num;
 }
+
+toNumber(42, 0);
 
 /**
  * Returns the cube of the given number.
@@ -306,9 +309,19 @@ getSumToN(5);
  *   202 => 4  // (2+0+2)
  *   5   => 5  // 5
  */
-function getSumOfDigits(/* num */) {
-  throw new Error('Not implemented');
+function getSumOfDigits(num) {
+  const initialValue = 0;
+  const sumWithInitial = num
+    .toString()
+    .split('')
+    .reduce(
+      (accumulator, currentValue) => accumulator + Number(currentValue),
+      initialValue
+    );
+  return sumWithInitial;
 }
+
+getSumOfDigits(123);
 
 /**
  * Returns true if the given number is a power of two, false otherwise.
@@ -335,9 +348,11 @@ function isPowerOfTwo(/* num */) {
  *   0 => 0
  *   Math.PI / 2 => 1
  */
-function getSine(/* num */) {
-  throw new Error('Not implemented');
+function getSine(num) {
+  return Math.sin(num);
 }
+
+getSine(5);
 
 /**
  * Returns a string representation of a number in a specified base (radix).
@@ -449,9 +464,11 @@ isNumber(0);
  * 5.1  => false
  * '5'  => false
  */
-function isInteger(/* number */) {
-  throw new Error('Not implemented');
+function isInteger(number) {
+  return Number.isInteger(number);
 }
+
+isInteger(5.1);
 
 /**
  * Returns a floating point number or, if the number cannot be parsed from the argument, returns NaN.
