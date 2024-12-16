@@ -114,9 +114,16 @@ getLinearEquationRoot(5, 10);
  *   (0,-1) (1,0)    => π/2
  *   (0,1) (0,1)     => 0
  */
-function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
+function getAngleBetweenVectors(x1, y1, x2, y2) {
+  const dotProduct = x1 * x2 + y1 * y2;
+  const magnitudeA = Math.sqrt(x1 * x1 + y1 * y1);
+  const magnitudeB = Math.sqrt(x2 * x2 + y2 * y2);
+  const cosineTheta = dotProduct / (magnitudeA * magnitudeB);
+  const clampedCosine = Math.max(-1, Math.min(1, cosineTheta));
+  return Math.acos(clampedCosine);
 }
+
+getAngleBetweenVectors(1, 0, 0, 1);
 
 /**
  * Returns a last digit of a integer number.
@@ -274,9 +281,21 @@ getCube(3);
  *   3  => 2
  *   10 => 55
  */
-function getFibonacciNumber(/* index */) {
-  throw new Error('Not implemented');
+function getFibonacciNumber(index) {
+  if (index === 0) return 0;
+  if (index === 1) return 1;
+  let prev = 0;
+  let current = 1;
+  for (let i = 2; i <= index; i += 1) {
+    const next = prev + current;
+    prev = current;
+    current = next;
+  }
+
+  return current;
 }
+
+getFibonacciNumber(2);
 
 /**
  * Returns the sum of all numbers from 1 to n.
@@ -334,9 +353,16 @@ getSumOfDigits(123);
  *   16  => true
  *   15  => false
  */
-function isPowerOfTwo(/* num */) {
-  throw new Error('Not implemented');
+function isPowerOfTwo(num) {
+  let newNum = num;
+  if (newNum <= 0) return false;
+  while (newNum % 2 === 0) {
+    newNum /= 2;
+  }
+  return newNum === 1;
 }
+
+isPowerOfTwo(4);
 
 /**
  * Returns the sine of a number.
@@ -365,9 +391,11 @@ getSine(5);
  * 255, 16 => 'ff'
  * 2, 2    => '10'
  */
-function numberToStringInBase(/* number, base */) {
-  throw new Error('Not implemented');
+function numberToStringInBase(number, base) {
+  return number.toString(base);
 }
+
+numberToStringInBase(255, 16);
 
 /**
  * Returns a string representation of a number in exponential notation.
